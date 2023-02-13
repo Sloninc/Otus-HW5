@@ -18,6 +18,12 @@ namespace Class5
             thirdString,
         }
 
+        /// <summary>
+        /// Метод вывода таблицы.
+        /// </summary>
+        /// <param name="typeString"></param>
+        /// <param name="countTab"></param>
+        /// <param name="inputString"></param>
         public static void OutputStringTab(TypeStringTab typeString, int countTab, string inputString)
         {
             int _countString = 2 * countTab + inputString.Length;
