@@ -26,41 +26,51 @@ namespace Class5
         /// <param name="inputString"></param>
         public static void OutputStringTab(TypeStringTab typeString, int countTab, string inputString)
         {
-            int _countString = 2 * countTab + inputString.Length;
-            string? s = new string('+', _countString - 2);
-            for (int i = 0; i <= _countString-1; i++)
+            try
             {
-                switch (typeString)
+                int _countString = 2 * countTab + inputString.Length;
+                if (_countString > 40)
+                    throw new ArgumentOutOfRangeException("размерноть таблицы и текст", "строки в таблице не должны превышать 40 символов");
+                string? s = new string('+', _countString - 2);
+                for (int i = 0; i <= _countString - 1; i++)
                 {
-                    case TypeStringTab.firstString:
-                        if (i > 2 * countTab) break;
-                        if (i == 0 | i == 2 * countTab)
-                            Console.WriteLine(new String('+', _countString));
-                        else if (i == countTab)
-                            Console.WriteLine("+" + new string(' ', countTab - 1) + inputString + new string(' ', countTab - 1) + "+");
-                        else Console.WriteLine("+" + new string(' ', _countString - 2) + "+");
-                        break;
-                    case TypeStringTab.secondString:
-                        if (i > 2 * countTab) break;
-                        var z = s.ToList().Select((m, n) => (n % 2 == 0) ? m = ' ' : m = '+').ToArray();
-                        var w = s.ToList().Select((m, n) => (n % 2 == 0) ? m = '+' : m = ' ').ToArray();
-                        if (i % 2 == 0) Console.WriteLine("+" + new string(z) + "+");
-                        else Console.WriteLine("+" + new string(w) + "+");
-                        break;
-                    case TypeStringTab.thirdString:
-                        if (i == 0 | i == _countString-1)
-                            Console.WriteLine(new String('+', _countString));
-                        else
-                        {
-                            var u = s.ToList().Select((m, n) => (n == i-1)|(n== _countString - 2-i) ? m = '+' : m = ' ').ToArray();
-                            Console.WriteLine("+" + new String(u) + "+");
-                        }
-                        break;
+                    switch (typeString)
+                    {
+                        case TypeStringTab.firstString:
+                            if (i > 2 * countTab) break;
+                            if (i == 0 | i == 2 * countTab)
+                                Console.WriteLine(new String('+', _countString));
+                            else if (i == countTab)
+                                Console.WriteLine("+" + new string(' ', countTab - 1) + inputString + new string(' ', countTab - 1) + "+");
+                            else Console.WriteLine("+" + new string(' ', _countString - 2) + "+");
+                            break;
+                        case TypeStringTab.secondString:
+                            if (i > 2 * countTab) break;
+                            var z = s.ToList().Select((m, n) => (n % 2 == 0) ? m = ' ' : m = '+').ToArray();
+                            var w = s.ToList().Select((m, n) => (n % 2 == 0) ? m = '+' : m = ' ').ToArray();
+                            if (i % 2 == 0) Console.WriteLine("+" + new string(z) + "+");
+                            else Console.WriteLine("+" + new string(w) + "+");
+                            break;
+                        case TypeStringTab.thirdString:
+                            if (i == 0 | i == _countString - 1)
+                                Console.WriteLine(new String('+', _countString));
+                            else
+                            {
+                                var u = s.ToList().Select((m, n) => (n == i - 1) | (n == _countString - 2 - i) ? m = '+' : m = ' ').ToArray();
+                                Console.WriteLine("+" + new String(u) + "+");
+                            }
+                            break;
+                    }
                 }
+            }
+            catch(ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Main();
             }
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             int n;
             while (true)
