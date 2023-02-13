@@ -8,6 +8,9 @@ namespace Class5
 {
     internal class Program
     {
+        /// <summary>
+        /// Перечисление - выбор строки для вывода в таблицу.
+        /// </summary>
         public enum TypeStringTab
         {
             firstString,
