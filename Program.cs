@@ -8,6 +8,7 @@ namespace Class5
 {
     internal class Program
     {
+        #region TypeStringTab
         /// <summary>
         /// Перечисление - выбор строки для вывода в таблицу.
         /// </summary>
@@ -26,7 +27,9 @@ namespace Class5
             /// </summary>
             thirdString,
         }
+        #endregion
 
+        #region OutputStringTab
         /// <summary>
         /// Метод вывода таблицы.
         /// </summary>
@@ -92,7 +95,7 @@ namespace Class5
                         {
                             // формируем строки для расстановки символа '+' по диагонали
                             var _diagonalplus = _strplus.ToList().Select((m, n) => (n == i - 1) |
-                            (n == _countString - 2 - i) ? m = '+' : m = ' ').ToArray();
+                                (n == _countString - 2 - i) ? m = '+' : m = ' ').ToArray();
 
                             // расставляем символы '+' в диагональном порядке
                             Console.WriteLine("+" + new String(_diagonalplus) + "+");
@@ -101,7 +104,9 @@ namespace Class5
                 }
             }
         }
+        #endregion
 
+        #region Main
         /// <summary>
         /// Точка входа. Получает от пользователя размерность таблицы и текст, далее вызывает метод вывода таблицы.
         /// </summary>
@@ -153,5 +158,6 @@ namespace Class5
             }
             Console.ReadLine();
         }
+        #endregion
     }
 }
