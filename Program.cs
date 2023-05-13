@@ -146,9 +146,10 @@ namespace Class5
 
             if (inputText != null)
             {
-                OutputStringTab(TypeStringTab.firstString, n, inputText);
-                OutputStringTab(TypeStringTab.secondString, n, inputText);
-                OutputStringTab(TypeStringTab.thirdString, n, inputText);
+                foreach (var value in Enum.GetValues(typeof(TypeStringTab)))
+                {
+                    OutputStringTab((TypeStringTab)value, n, inputText);
+                }
             }
             Console.ReadLine();
         }
