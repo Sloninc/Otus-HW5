@@ -90,9 +90,8 @@ namespace Class5
                             Console.WriteLine(new String('+', _countString));
                         else
                         {
-                            var _diagonalplus = _strplus.ToList().Select((m, n) => (n == i - 1) |
-
                             // формируем строки для расстановки символа '+' по диагонали
+                            var _diagonalplus = _strplus.ToList().Select((m, n) => (n == i - 1) |
                             (n == _countString - 2 - i) ? m = '+' : m = ' ').ToArray();
 
                             // расставляем символы '+' в диагональном порядке
